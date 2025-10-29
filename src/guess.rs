@@ -111,7 +111,7 @@ impl PluginCommand for MimeGuess {
         };
 
         match input {
-            PipelineData::Value(Value::String { val, internal_span }, ..) => {
+            PipelineData::Value(Value::String { val, internal_span , .. }, ..) => {
                 let mime_type = guess(&val);
 
                 Ok(Value::string(mime_type, internal_span).into_pipeline_data())
